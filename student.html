@@ -1,0 +1,62 @@
+<html>
+    <body>        
+        <fieldset style="width:600px">
+            <legend><b>Student Input Section:</b></legend>
+            Name:<input type="text" id="txtName"><br>
+            Reg no:<input type="text" id="txtNum"><br>
+            Age:<input type="text" id="txtAge"><br>
+            Hobbies:<input type="text" id="txtHob1">
+            <input type="text" id="txtHob2"> <br/><br/>
+            <table border="1">
+                <tr><td>Subject 1:</td><td><input type="text" id="txtSub1"></td></tr>
+                <tr><td>Subject 2:</td><td><input type="text" id="txtSub2"></td></tr>
+                <tr><td>Subject 3:</td><td><input type="text" id="txtSub3"></td></tr>
+                <tr><td>Subject 4:</td><td><input type="text" id="txtSub4"></td></tr>
+                <tr><td>Subject 5:</td><td><input type="text" id="txtSub5"></td></tr>             
+            </table><br/><br/>
+            <input type="button" value="Get Result">
+        </fieldset>
+        
+        <h2>Report Card</h2>
+        
+        <table border="1">
+            <tr><td>Name:</td><td><input type="text" id="txtStudentName" readonly></td></tr>
+            <tr><td>RegNo.:</td><td><input type="text" id="txtStudentNum" readonly></td></tr>
+            <tr><td>Age:</td><td><input type="text" id="txtStudentAge" readonly></td></tr>
+            <tr><td>Hobbies:</td><td><input type="text" id="txtStudentHob1" readonly><br>
+            <input type="text" id="txtStudentHob2" readonly></td></tr>
+            <tr><td>Total Marks:</td><td><input type="text" id="txtTotalMarks" readonly></td></tr>
+            <tr><td>Average Marks:</td><td><input type="text" id="txtAvgMarks" readonly></td></tr>
+            <tr><td>Result:</td><td><input type="text" id="txtResult" readonly></td></tr>
+        </table>
+        <script>
+            function getReport()
+            {
+                var result="";
+                var m1 = document.getElementById('txtSub1').value;
+                var m2 = document.getElementById('txtSub2').value;
+                var m3 = document.getElementById('txtSub3').value;
+                var m4 = document.getElementById('txtSub4').value;
+                var m5 = document.getElementById('txtSub5').value;
+                var total = m1 - (- m2) - (- m3) - (- m4) - (- m5);
+                var avg = total / 5;                  
+                switch((avg >= 85 && avg <= 100) ? 1 : (avg >= 65 && avg < 85) ? 2 : (avg >= 50 && avg < 65) ? 3 : (avg >= 35 && avg < 50) ? 4 : 0 )
+                {
+                    case 1 :result="Distinction";break;
+                    case 2 :result="First Class";break;
+                    case 3 :result="Second Class";break;
+                    case 4 :result="Third Class";break;
+                    case 0 :result="Fail";break;
+                }
+                document.getElementById('txtStudentName').value = document.getElementById('txtName').value;
+                document.getElementById('txtStudentNum').value = document.getElementById('txtNum').value;
+                document.getElementById('txtStudentAge').value = document.getElementById('txtAge').value;
+                document.getElementById('txtStudentHob1').value = document.getElementById('txtHob1').value;
+                document.getElementById('txtStudentHob2').value = document.getElementById('txtHob2').value;
+                document.getElementById('txtTotalMarks').value = total;
+                document.getElementById('txtAvgMarks').value = avg;
+                document.getElementById('txtResult').value = result;
+            }
+        </script>
+</body>
+</html>

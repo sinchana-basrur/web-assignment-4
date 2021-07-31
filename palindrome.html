@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<script type="text/javascript">
+    var n = prompt("Enter a number: ");
+    var rem, temp, sum=0, final = 0;
+    temp = n;
+    while(n>0)
+	{
+		rem = n%10;
+		sum += n % 10;
+		n = parseInt(n/10);
+		final = final*10+rem;
+	}
+	if(final==temp)
+	{
+		window.alert("The inputed number is Palindrome");
+	}
+	else
+	{
+		window.alert("The inputted number is not palindrome");
+	}
+	window.alert("The sum of digits is: "+sum);
+</script>
+</head>
+</html>
